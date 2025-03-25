@@ -34,7 +34,7 @@ export class FileCookieStore extends Store {
   }
 
   /**
-   * Retrieve a {@link Cookie} with the given `domain`, `path`, and `key` (`name`). The RFC maintains that exactly
+   * Retrieve a Cookie with the given `domain`, `path`, and `key` (`name`). The RFC maintains that exactly
    * one of these cookies should exist in a store. If the store is using versioning, this means that the latest or
    * newest such cookie should be returned.
    *
@@ -48,7 +48,7 @@ export class FileCookieStore extends Store {
     key: Nullable<string>,
   ): Promise<Cookie | undefined>;
   /**
-   * Retrieve a {@link Cookie} with the given `domain`, `path`, and `key` (`name`). The RFC maintains that exactly
+   * Retrieve a Cookie with the given `domain`, `path`, and `key` (`name`). The RFC maintains that exactly
    * one of these cookies should exist in a store. If the store is using versioning, this means that the latest or
    * newest such cookie should be returned.
    *
@@ -84,12 +84,12 @@ export class FileCookieStore extends Store {
   }
 
   /**
-   * Locates all {@link Cookie} values matching the given `domain` and `path`.
+   * Locates all Cookie values matching the given `domain` and `path`.
    *
    * The resulting list is checked for applicability to the current request according to the RFC (`domain-match`, `path-match`,
    * `http-only-flag`, `secure-flag`, `expiry`, and so on), so it's OK to use an optimistic search algorithm when implementing
-   * this method. However, the search algorithm used SHOULD try to find cookies that {@link domainMatch} the `domain` and
-   * {@link pathMatch} the `path` in order to limit the amount of checking that needs to be done.
+   * this method. However, the search algorithm used SHOULD try to find cookies that domainMatch the `domain` and
+   * pathMatch the `path` in order to limit the amount of checking that needs to be done.
    *
    * @remarks
    * - As of version `0.9.12`, the `allPaths` option to cookiejar.getCookies() above causes the path here to be `null`.
@@ -106,12 +106,12 @@ export class FileCookieStore extends Store {
     allowSpecialUseDomain?: boolean,
   ): Promise<Cookie[]>;
   /**
-   * Locates all {@link Cookie} values matching the given `domain` and `path`.
+   * Locates all Cookie values matching the given `domain` and `path`.
    *
    * The resulting list is checked for applicability to the current request according to the RFC (`domain-match`, `path-match`,
    * `http-only-flag`, `secure-flag`, `expiry`, and so on), so it's OK to use an optimistic search algorithm when implementing
-   * this method. However, the search algorithm used SHOULD try to find cookies that {@link domainMatch} the `domain` and
-   * {@link pathMatch} the `path` in order to limit the amount of checking that needs to be done.
+   * this method. However, the search algorithm used SHOULD try to find cookies that domainMatch the `domain` and
+   * pathMatch the `path` in order to limit the amount of checking that needs to be done.
    *
    * @remarks
    * - As of version `0.9.12`, the `allPaths` option to cookiejar.getCookies() above causes the path here to be `null`.
@@ -199,27 +199,27 @@ export class FileCookieStore extends Store {
   }
 
   /**
-   * Adds a new {@link Cookie} to the store. The implementation SHOULD replace any existing cookie with the same `domain`,
+   * Adds a new Cookie to the store. The implementation SHOULD replace any existing cookie with the same `domain`,
    * `path`, and `key` properties.
    *
    * @remarks
    * - Depending on the nature of the implementation, it's possible that between the call to `fetchCookie` and `putCookie`
    * that a duplicate `putCookie` can occur.
    *
-   * - The {@link Cookie} object MUST NOT be modified; as the caller has already updated the `creation` and `lastAccessed` properties.
+   * - The Cookie object MUST NOT be modified; as the caller has already updated the `creation` and `lastAccessed` properties.
    *
    * @param cookie - The cookie to store.
    */
   public override putCookie(cookie: Cookie): Promise<void>;
   /**
-   * Adds a new {@link Cookie} to the store. The implementation SHOULD replace any existing cookie with the same `domain`,
+   * Adds a new Cookie to the store. The implementation SHOULD replace any existing cookie with the same `domain`,
    * `path`, and `key` properties.
    *
    * @remarks
    * - Depending on the nature of the implementation, it's possible that between the call to `fetchCookie` and `putCookie`
    * that a duplicate `putCookie` can occur.
    *
-   * - The {@link Cookie} object MUST NOT be modified; as the caller has already updated the `creation` and `lastAccessed` properties.
+   * - The Cookie object MUST NOT be modified; as the caller has already updated the `creation` and `lastAccessed` properties.
    *
    * @param cookie - The cookie to store.
    * @param callback - A function to call when the cookie has been stored or an error has occurred.
@@ -251,7 +251,7 @@ export class FileCookieStore extends Store {
   }
 
   /**
-   * Update an existing {@link Cookie}. The implementation MUST update the `value` for a cookie with the same `domain`,
+   * Update an existing Cookie. The implementation MUST update the `value` for a cookie with the same `domain`,
    * `path`, and `key`. The implementation SHOULD check that the old value in the store is equivalent to oldCookie -
    * how the conflict is resolved is up to the store.
    *
@@ -271,7 +271,7 @@ export class FileCookieStore extends Store {
    */
   public override updateCookie(oldCookie: Cookie, newCookie: Cookie): Promise<void>;
   /**
-   * Update an existing {@link Cookie}. The implementation MUST update the `value` for a cookie with the same `domain`,
+   * Update an existing Cookie. The implementation MUST update the `value` for a cookie with the same `domain`,
    * `path`, and `key`. The implementation SHOULD check that the old value in the store is equivalent to oldCookie -
    * how the conflict is resolved is up to the store.
    *
@@ -403,14 +403,14 @@ export class FileCookieStore extends Store {
    * Gets all the cookies in the store.
    *
    * @remarks
-   * - Cookies SHOULD be returned in creation order to preserve sorting via {@link cookieCompare}.
+   * - Cookies SHOULD be returned in creation order to preserve sorting via cookieCompare.
    */
   public override getAllCookies(): Promise<Cookie[]>;
   /**
    * Gets all the cookies in the store.
    *
    * @remarks
-   * - Cookies SHOULD be returned in creation order to preserve sorting via {@link cookieCompare}.
+   * - Cookies SHOULD be returned in creation order to preserve sorting via cookieCompare.
    *
    * @param callback - A function to call when all the cookies have been retrieved or an error occurs.
    */
