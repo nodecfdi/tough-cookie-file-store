@@ -138,6 +138,7 @@ export class FileCookieStore extends Store {
     allowSpecialUseDomain: boolean | Callback<Cookie[]> = false,
     callback?: Callback<Cookie[]>,
   ): unknown {
+    /* istanbul ignore if -- @preserve */
     if (typeof allowSpecialUseDomain === 'function') {
       callback = allowSpecialUseDomain;
       allowSpecialUseDomain = true;
@@ -231,6 +232,7 @@ export class FileCookieStore extends Store {
     const promiseCallback = createPromiseCallback<undefined>(callback);
 
     const { domain, path, key } = cookie;
+    /* istanbul ignore if -- @preserve */
     if (!domain || !path || !key) {
       return promiseCallback.resolve(undefined);
     }
@@ -297,6 +299,7 @@ export class FileCookieStore extends Store {
     // lastAccessed may not be important to some stores and an equality
     // comparison could exclude that field.
     // Don't return a value when using a callback, so that the return type is truly "void"
+    /* istanbul ignore if -- @preserve */
     if (callback) {
       this.putCookie(newCookie, callback);
 

@@ -42,9 +42,10 @@ describe('file cookie store', () => {
     ['foo.com', '/', 'bar'],
     ['example.com', '/home', 'bar'],
     ['exmaple.com', '/', 'c'],
+    [null, null, null],
   ])(
     'not find a cookie with the given domain, path and key (%s, %s, %s)',
-    async (domain: string, path: string, key: string) => {
+    async (domain: string | null, path: string | null, key: string | null) => {
       const cookie = await cookieStore.findCookie(domain, path, key);
 
       expect(cookie).toBeUndefined();
