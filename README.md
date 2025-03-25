@@ -41,6 +41,18 @@ PNPM
 pnpm add @nodecfdi/tough-cookie-file-store
 ```
 
+## Usage
+
+```ts
+import { FileCookieStore } from '@nodecfdi/tough-cookie-file-store';
+import { CookieJar, Cookie } from 'tough-cookie';
+
+const cookieJar = new CookieJar(new FileCookieStore('cookies.json'));
+
+const cookie = Cookie.parse('foo=bar; Domain=example.com; Path=/');
+await cookieJar.setCookie(cookie, 'https://example.com');
+```
+
 ## Contributing
 
 Contributions are welcome. Please read [CONTRIBUTING][] for more details and remember to review the [CHANGELOG][].
