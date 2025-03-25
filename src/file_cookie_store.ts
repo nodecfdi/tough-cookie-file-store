@@ -432,7 +432,7 @@ export class FileCookieStore extends Store {
         const pathEntry = domainEntry[path] ?? {};
         const keys = Object.keys(pathEntry);
         for (const key of keys) {
-          const keyEntry = pathEntry[key] as Cookie | null;
+          const keyEntry = pathEntry[key];
           if (keyEntry) {
             cookies.push(keyEntry);
           }
