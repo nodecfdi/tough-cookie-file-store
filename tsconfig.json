@@ -2,6 +2,7 @@
   "extends": "@nodecfdi/tsconfig/tsconfig.package.json",
   "compilerOptions": {
     "rootDir": "./",
-    "outDir": "./build"
+    "outDir": "./build",
+    "types": ["vitest/globals", "@types/node"]
   }
 }
