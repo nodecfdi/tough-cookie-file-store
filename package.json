@@ -3,12 +3,14 @@
   "description": "A JSON file store implementation for tough-cookie module",
   "version": "1.0.0",
   "type": "module",
-  "module": "",
-  "types": "",
+  "module": "./build/index.js",
+  "types": "./build/index.d.ts",
   "files": [
     "build"
   ],
-  "exports": {},
+  "exports": {
+    ".": "./build/index.js"
+  },
   "scripts": {
     "prepare": "is-in-ci || husky",
     "typecheck": "tsc --noEmit",
@@ -107,7 +109,9 @@
     "testScript": "test:run"
   },
   "tsup": {
-    "entry": [],
+    "entry": [
+      "index.ts"
+    ],
     "outDir": "./build",
     "clean": false,
     "format": "esm",
