@@ -1,0 +1,6 @@
+{
+  "plugin": ["typedoc-github-theme"],
+  "entryPoints": ["./src"],
+  "entryPointStrategy": "expand",
+  "out": "./docs"
+}
